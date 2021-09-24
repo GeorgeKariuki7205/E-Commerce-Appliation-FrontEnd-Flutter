@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_pro/carousel_pro.dart';
+
 class ImageCarousel extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-
     Widget image_carousel = new Container(
-
       height: 200.0,
       child: new Carousel(
         boxFit: BoxFit.cover,
@@ -24,7 +23,6 @@ class ImageCarousel extends StatelessWidget {
         indicatorBgPadding: 8.0,
         dotColor: Colors.white,
       ),
-
     );
 
     return image_carousel;

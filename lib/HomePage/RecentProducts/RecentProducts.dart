@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:Geo_Store/SingleProduct/SingleProduct.dart';
 class RecentProducts extends StatefulWidget {
   @override
   _RecentProductsState createState() => _RecentProductsState();
@@ -44,7 +44,6 @@ class _ProductsState extends State<Products> {
       "old_price": 120,
       "price": 80
     },
-
     {
       "name": "Pants",
       "picture": "images/products/pants1.jpg",
@@ -97,20 +96,37 @@ class SingleProduct extends StatelessWidget {
         tag: name,
         child: Material(
           child: InkWell(
-            onTap: () {},
+            onTap: ()=> Navigator.of(context).push(new MaterialPageRoute(builder: (context) => new SingleProductDetails(
+              product_deatils_name: name,
+              product_deatils_old_price: oldPrice,
+              product_deatils_picture: picture,
+              product_deatils_price: price,
+            ))),
             child: GridTile(
               footer: Container(
                 color: Colors.white70,
                 child: ListTile(
-                  title: Text("\$$price", style: TextStyle( fontWeight: FontWeight.bold ),),
-                  subtitle: Text("\$$oldPrice", style: TextStyle(decoration: TextDecoration.lineThrough, color: Colors.red, fontWeight: FontWeight.bold),),
+                  title: Text(
+                    "\$$price",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(
+                    "\$$oldPrice",
+                    style: TextStyle(
+                        decoration: TextDecoration.lineThrough,
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold),
+                  ),
                   leading: Text(
                     name,
                     style: TextStyle(fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
-              child: Image.asset(picture, fit: BoxFit.cover,),
+              child: Image.asset(
+                picture,
+                fit: BoxFit.cover,
+              ),
             ),
           ),
         ),

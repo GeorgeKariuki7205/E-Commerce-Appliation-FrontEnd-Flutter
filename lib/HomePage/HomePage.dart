@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
       appBar: new AppBar(
         elevation: 0.0,
         backgroundColor: Colors.red,
-        title: Text('E-Commerce'),
+        title: Text('Geo Store'),
         actions: [
           new IconButton(
               icon: Icon(
@@ -52,9 +52,36 @@ class _HomePageState extends State<HomePage> {
               'New Arrivals',
               style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
             ),
-
           ),
           RecentProducts()
+        ],
+      ),
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        // currentIndex: _currentIndex,
+        // onTap: _updateIndex,
+        selectedItemColor: Colors.red[700],
+        selectedFontSize: 13,
+        unselectedFontSize: 13,
+        iconSize: 30,
+        items: [
+          BottomNavigationBarItem(
+            label: "Home",
+            icon: Icon(Icons.home),
+
+          ),
+          BottomNavigationBarItem(
+            label: "Favorites",
+            icon: Icon(Icons.favorite_border),
+          ),
+          BottomNavigationBarItem(
+            label: "Categories",
+            icon: Icon(Icons.grid_view),
+          ),
+          BottomNavigationBarItem(
+            label: "My Account",
+            icon: Icon(Icons.account_circle_outlined),
+          ),
         ],
       ),
     );
