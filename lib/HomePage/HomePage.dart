@@ -1,6 +1,10 @@
+import 'package:Geo_Store/HomePage/RecentProducts/RecentProducts.dart';
 import 'package:flutter/material.dart';
 import 'NavigationDrawer/NavigationDrawer.dart';
 import 'ImageCarousel/ImageCarousel.dart';
+import 'Categories/Categories.dart';
+import 'RecentProducts/RecentProducts.dart';
+
 class HomePage extends StatefulWidget {
   @override
   _HomePageState createState() => _HomePageState();
@@ -31,7 +35,27 @@ class _HomePageState extends State<HomePage> {
       ),
       drawer: NavigationDrawer(),
       body: new ListView(
-        children: [ImageCarousel()],
+        children: [
+          ImageCarousel(),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Categories',
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+            ),
+          ),
+          //  ADDING A HORIZONTAL LIST VIEW.
+          Categories(),
+          Padding(
+            padding: const EdgeInsets.all(22.0),
+            child: Text(
+              'New Arrivals',
+              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),
+            ),
+
+          ),
+          RecentProducts()
+        ],
       ),
     );
   }
