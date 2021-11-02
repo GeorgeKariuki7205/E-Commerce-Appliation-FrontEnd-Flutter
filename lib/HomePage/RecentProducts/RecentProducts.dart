@@ -10,7 +10,7 @@ class _RecentProductsState extends State<RecentProducts> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
+      height: 200,
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Products(),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:Geo_Store/Categories/SingleCategory/SingleCategory.dart';
 
 class Categories extends StatefulWidget {
   @override
@@ -13,30 +14,36 @@ class _CategoriesState extends State<Categories> {
       child: ListView(
         scrollDirection: Axis.horizontal,
         children: [
-          SingleCategory("Dress", 'images/cats/dress.png'),
-          SingleCategory("Formal", 'images/cats/formal.png'),
-          SingleCategory("Informal", 'images/cats/informal.png'),
-          SingleCategory("Jeans", 'images/cats/jeans.png'),
-          SingleCategory("Shoes", 'images/cats/shoe.png'),
-          SingleCategory("TShirts", 'images/cats/tshirt.png'),
+          SingleCategoryOnList("Dress", 'images/cats/dress.png'),
+          SingleCategoryOnList("Formal", 'images/cats/formal.png'),
+          SingleCategoryOnList("Informal", 'images/cats/informal.png'),
+          SingleCategoryOnList("Jeans", 'images/cats/jeans.png'),
+          SingleCategoryOnList("Shoes", 'images/cats/shoe.png'),
+          SingleCategoryOnList("TShirts", 'images/cats/tshirt.png'),
         ],
       ),
     );
   }
 }
 
-class SingleCategory extends StatelessWidget {
+class SingleCategoryOnList extends StatelessWidget {
   final String image_location;
   final String image_caption;
 
-  SingleCategory(this.image_caption, this.image_location);
+  SingleCategoryOnList(this.image_caption, this.image_location);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(2.0),
       child: InkWell(
-        onTap: () {},
+        onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+            builder: (context) => new SingleCategory(
+              // product_deatils_name: 'name',
+              // product_deatils_old_price: 20,
+              // product_deatils_picture: image,
+              // product_deatils_price: 40,
+            ))),
         child: Container(
           width: 100.0,
           child: ListTile(
